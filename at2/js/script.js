@@ -21,85 +21,57 @@ function exibirResultado() {
         let emRecuperacao = "";
 
         if (nat >= 550) {
-            aprovados += "Matemática (" + nat + "), ";
+            aprovados += "Natureza (" + nat + ") ";
         } else if (nat <= 400) {
-            reprovados += "Matemática (" + nat + "), ";
+            reprovados += "Natureza (" + nat + ") ";
         } else {
-            emRecuperacao += "Matemática (" + nat + "), ";
+            emRecuperacao += "Natureza (" + nat + ") ";
         }
 
         if (hum >= 550) {
-            aprovados += "Língua Portuguesa (" + hum + "), ";
+            aprovados += "Humanas (" + hum + ") ";
         } else if (hum <= 400) {
-            reprovados += "Língua Portuguesa (" + hum + "), ";
+            reprovados += "Humanas (" + hum + ") ";
         } else {
-            emRecuperacao += "Língua Portuguesa (" + hum + "), ";
+            emRecuperacao += "Humanas (" + hum + ") ";
         }
 
         if (lin >= 550) {
-            aprovados += "História (" + lin + "), ";
+            aprovados += "Linguagens (" + lin + ") ";
         } else if (lin <= 400) {
-            reprovados += "História (" + lin + "), ";
+            reprovados += "Linguagens (" + lin + ") ";
         } else {
-            emRecuperacao += "História (" + lin + "), ";
+            emRecuperacao += "Linguagens (" + lin + ") ";
         }
 
         if (mat >= 550) {
-            aprovados += "Geografia (" + mat + "), ";
+            aprovados += "Matemática (" + mat + ") ";
         } else if (mat <= 400) {
-            reprovados += "Geografia (" + mat + "), ";
+            reprovados += "Matemática (" + mat + ") ";
         } else {
-            emRecuperacao += "Geografia (" + mat + "), ";
+            emRecuperacao += "Matemática (" + mat + ") ";
         }
 
         if (red >= 550) {
-            aprovados += "Ciências (" + red + "), ";
+            aprovados += "Redação (" + red + ") ";
         } else if (red <= 400) {
-            reprovados += "Ciências (" + red + "), ";
+            reprovados += "Redação (" + red + ") ";
         } else {
-            emRecuperacao += "Ciências (" + red + "), ";
-        }
-
-        if (aprovados) {
-            aprovados = aprovados.slice(0, -2);
-        }
-        if (reprovados) {
-            reprovados = reprovados.slice(0, -2);
-        }
-        if (emRecuperacao) {
-            emRecuperacao = emRecuperacao.slice(0, -2);
+            emRecuperacao += "Redação (" + red + ") ";
         }
 
         resultado = `${name}, você está: `;
         if (reprovados) {
-            resultado += "Reprovado em: <span class='reprovado'>" + reprovados + "</span>.<br>";
+            resultado += "Reprovado em: <span class='reprovado'>" + reprovados + "</span><br>";
         }
         if (emRecuperacao) {
-            resultado += "Em recuperação em: <span class='recuperacao'>" + emRecuperacao + "</span>.<br>";
+            resultado += "Em recuperação em: <span class='recuperacao'>" + emRecuperacao + "</span><br>";
         }
-        if (aprovados && !reprovados && !emRecuperacao) {
-            resultado += "<span class='aprovado'>Aprovado em todas as matérias.</span>";
-        } else if (aprovados) {
-            resultado += "Aprovado em: <span class='aprovado'>" + aprovados + "</span>.";
+        if (aprovados) {
+            resultado += "Aprovado em: <span class='aprovado'>" + aprovados + "</span>";
         }
     }
 
     document.querySelector("#resultado").innerHTML = resultado;
 }
-
 document.querySelector('button').addEventListener('click', exibirResultado);
-
-
-// Monta o resultado
-resultado = `${name}, você está: `;
-if (reprovados) {
-    resultado += "Reprovado em: <span class='reprovado'>" + reprovados + "</span>.<br>";
-}
-if (emRecuperacao) {
-    resultado += "Em recuperação em: <span class='recuperacao'>" + emRecuperacao + "</span>.<br>";
-}
-if (aprovados && !reprovados && !emRecuperacao) {
-    resultado += "<span class='aprovado'>Aprovado em todas as matérias.</span>";
-} else if (aprovados) {
-    resultado += "Aprovado em: <span class='aprovado'>" + aprovados + "</span>.";
-}

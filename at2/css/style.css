@@ -19,6 +19,7 @@ input, button {
 .aprovado {
     font-weight: bold;
     color: blue;
+    margin-right: 2px;
 }
 
 .reprovado {
